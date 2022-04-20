@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers, controllers: {
@@ -13,6 +14,13 @@ devise_for :admin, controllers: {
 }
 
 
-  devise_for :users
+=======
+  root to: "homes#top"
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get "home/about"=>"homes#about"
+
+
 end
