@@ -14,7 +14,7 @@ devise_for :admin, controllers: {
 }
 
 
-=======
+
   root to: "homes#top"
 
 
