@@ -22,5 +22,5 @@ devise_for :admin, controllers: {
 
   get "home/about"=>"homes#about"
 
-
+  get "items"=>"public/items#index"
 end
