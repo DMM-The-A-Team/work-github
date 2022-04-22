@@ -1,5 +1,8 @@
 商品一覧(全)
 
-<%= @items.each do |list| %>
+<%= @items.each do |item| %>
 
-image_id
+    <%= item.image_id %>
+    <%= item.name %>
+    <%= item.price %>
+<% end %>
