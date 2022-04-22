@@ -20,7 +20,11 @@ devise_for :admin, controllers: {
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get "home/about"=>"homes#about"
+  get "/about"=>"homes#about"
+  get "/orders"=>"orders#index"
+  get "orders/new"=>"orders#new"
 
   get "items"=>"public/items#index"
+
+
 end
