@@ -23,5 +23,13 @@ devise_for :admin, controllers: {
   get "home/about"=>"homes#about"
 
   get "items"=>"public/items#index"
+
+
+  get "customers/my_page" => "public/customers#show"
+
+  get "customers/edit_page" => "public/customers#edit"
+
+
   get "items/:id" => 'public/items#show'
+
 end
