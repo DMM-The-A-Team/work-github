@@ -19,8 +19,6 @@
           </div>
         <% end %>
 
-        <div class="text-right">
-
 
         <div class="actions">
           <%= f.submit "ログイン", class: "btn btn-primary btn-lg center-block" %>
@@ -29,6 +27,7 @@
 
       <br>
       <h3 style="width: 300px;background-color: #a6d3c8; text-align: center; color: white">登録がお済みでない方</h3>
+      <br>
       <p><%= link_to "こちら", "/customers/sign_up" %>から新規登録をしてください</p><br>
 
       <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
