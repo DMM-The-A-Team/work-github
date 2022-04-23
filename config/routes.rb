@@ -29,9 +29,10 @@ devise_for :admin, controllers: {
 
 
   get "customers/my_page" => "public/customers#show"
-
   get "customers/edit_page" => "public/customers#edit"
-
+  get "admin/customers/index" => "admin/customers#index"
+  get "admin/customers/edit" => "admin/customers#edit"
+  get "admin/customers/show" => "admin/customers#show"
 
   get "items/:id" => 'public/items#show'
 
