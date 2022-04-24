@@ -15,14 +15,15 @@ devise_for :admin, controllers: {
 
 
 
-  root to: "homes#top"
+  root to: "public/homes#top"
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get "/about"=>"homes#about"
+  get "about"=>"public/homes#about"
   get "/orders"=>"orders#index"
   get "orders/new"=>"orders#new"
+  get "admin"=>"admin/homes#top"
 
   get "items"=>"public/items#index"
   get "admin/items/new"=>"admin/items#new"
