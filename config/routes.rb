@@ -25,7 +25,9 @@ devise_for :admin, controllers: {
   get "orders/new"=>"orders#new"
 
   get "items"=>"public/items#index"
-
+  get "admin/items/new"=>"admin/items#new"
+  post 'items'=>'admin/items#create'
+  get 'admin/items'=>'admin/items#index'
 
 
   get "customers/my_page" => "public/customers#show"

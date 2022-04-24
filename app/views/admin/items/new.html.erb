@@ -1,0 +1,8 @@
+商品新規登録
+<%= form_with model: @item do |f| %>
+  <%= f.file_field :image, accept: "image/*" %>
+  <%= f.text_field :name %>
+  <%= f.text_field :introduction %>
+  <%= f.text_field :price %>
+  <%= f.submit "新規登録" %>
+<% end %>

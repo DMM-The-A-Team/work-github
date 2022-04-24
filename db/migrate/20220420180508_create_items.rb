@@ -6,6 +6,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.text :introduction
       t.integer :price
       t.boolean :is_active
+      t.integer :genre_id
       t.datetime :create_at
       t.datetime :update_ut
 
