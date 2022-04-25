@@ -1,8 +1,11 @@
 商品一覧(全)
 
 <%= @items.each do |item| %>
-
-    <%= item.image_id %>
+  <% if item.image.attached? %>
+    <%= image_tag item.image, size: "40x40" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "40x40" %>
+  <% end %>
     <%= item.name %>
     <%= item.price %>
 <% end %>
