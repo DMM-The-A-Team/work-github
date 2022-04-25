@@ -21,14 +21,18 @@ devise_for :admin, controllers: {
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get "about"=>"public/homes#about"
-  get "/orders"=>"orders#index"
-  get "orders/new"=>"orders#new"
+  get "orders"=>"public/orders#index"
+  get "orders/new"=>"public/orders#new"
+  get "orders/confirm"=>"public/orders#confirm"
   get "admin"=>"admin/homes#top"
 
   get "items"=>"public/items#index"
   get "admin/items/new"=>"admin/items#new"
   post 'items'=>'admin/items#create'
   get 'admin/items'=>'admin/items#index'
+  get 'admin/items/:id/edit'=>'admin/items#edit'
+  get 'admin/items/:id'=>'admin/items#show'
+  patch 'items/:id'=>'admin/items#update'
 
 
   get "customers/my_page" => "public/customers#show"
