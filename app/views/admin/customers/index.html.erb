@@ -1,18 +1,20 @@
 <h2>会員一覧</h2>
 
-<th>
-  会員ID
-</th>
 
-<rh>
-  氏名
-</rh>
+<table>
+<tr>
+　<th>会員ID　　</th>
+　<th>氏名　　</th>
+　<th>メールアドレス　　</th>
+　<th>ステータス　　</th>
+<tr>
 
-<th>
-  メールアドレス
-</th>
-
-<th>
-  ステータス
-</th>
+   <% @customers.each do |customer| %>
+  <td></td>
+　<td><%= customer.sunname %><%= customer.name %></td>
+　<td><%= customer.email %></td>
+　<td></td>
+</tr>
+</table>
+<% end %>
 
