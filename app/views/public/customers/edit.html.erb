@@ -1,37 +1,49 @@
+<div class="container">
+   <div class="col-lg-10">
 <h2>会員情報編集</h2>
 <table border="1">
 
+<%= form_with model: @customer,url:customers_update_path do |f| %>
 
-<tr>
-  <td>氏名</td>
-  <td><%= @customer.sunname %><%= @customer.name %></td>
-</tr>
+<div class="col-md-10">
+  <div class="form-group col-md-12">
+   <label>氏名</label><br>
+   <%= f.text_field :sunname %>
+   <%= f.text_field :name %>
+  </div>
 
-<tr>
-  <td>カナ</td>
-  <td><%= @customer.sunname_kana %><%= @customer.name_kana %></td>
-</tr>
+  <div class= "fotm-group col-md-12">
+   <label>カナ</label><br>
+   <%= f.text_field :sunname_kana %>
+   <%= f.text_field :name_kana %>
+  </div>
 
-<tr>
-  <td>郵便番号</td>
-  <td><%= @customer.postal_code %></td>
-</tr>
+  <div class= "form-group col-md-12">
+   <label>郵便番号</label><br>
+   <%= f.text_field :postal_code %>
+  </div>
 
-<tr>
-  <td>住所</td>
-  <td><%= @customer.address %></td>
-</tr>
+  <div class= "form-group col-md-12">
+   <label>住所</label><br>
+   <%= f.text_field :address %>
+  </div>
 
-<tr>
-  <td>電話番号</td>
-  <td><%= @customer.telephone_number %></td>
-</tr>
+  <div class= "form-group col-md-12">
+   <label>電話番号</label><br>
+   <%= f.text_field :telephone_number %>
+  </div>
 
-<tr>
-  <td>メールアドレス</td>
-  <td><%= @customer.email %></td>
-</tr>
-</table>
+  <div class= "form-group col-md-12">
+   <label>メールアドレス</label><br>
+   <%= f.text_field :email %>
+  </div>
+  <div class= "form-group col-md-12">
+   <%= f.submit "変更を保存",class: "btn btn-success" %>
+  </div>
+  <br><br>
+  <% end %>
+</div>
+  </div>
+    </div>
 
 
-<br><br>

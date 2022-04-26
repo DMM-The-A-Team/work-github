@@ -1,20 +1,28 @@
 <h2>会員一覧</h2>
 
+<table class="table table-hover table-bordered table-condensed">
+      <thead>
+        <tr class="info">
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
 
-<table>
-<tr>
-　<th>会員ID　　</th>
-　<th>氏名　　</th>
-　<th>メールアドレス　　</th>
-　<th>ステータス　　</th>
-<tr>
-
-   <% @customers.each do |customer| %>
-  <td></td>
-　<td><%= customer.sunname %><%= customer.name %></td>
-　<td><%= customer.email %></td>
-　<td></td>
-</tr>
-</table>
-<% end %>
-
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr>
+            <td class="info col-xs-1">
+              <%= customer.id %>
+            </td>
+            <td class="text-left">
+              <%= link_to customer.sunname," "%><%= link_to customer.name, "" %>
+            </td>
+            <td class="text-left">
+              <%= customer.email %>
+            </td>
+        <% end %>
+          </tr>
+      </tbody>
+    </table>

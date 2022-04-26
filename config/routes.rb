@@ -40,6 +40,8 @@ devise_for :admin, controllers: {
   get "admin/customers/index" => "admin/customers#index"
   get "admin/customers/edit" => "admin/customers#edit"
   get "admin/customers/show" => "admin/customers#show"
+  patch "customers/update" => "public/customers#update"
+  patch "admin/customers/update" => "admin/customers#update"
 
   get "items/:id" => 'public/items#show'
 

@@ -1,15 +1,20 @@
-<h2>マイページ</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+<h2 style="width: 180px;background-color: #f0f6da; text-align: center;">マイページ</h2>
 <br><br>
-<%= link_to "編集ページ", customers_edit_page_path %>
-<h3>登録情報</h3>
+<div>
+<span><font size="5"><strong>登録情報</strong></font>　　　<%= link_to "編集する", customers_edit_page_path, class:"btn btn-success" %></span>
+</div>
 <br>
 
 
-<table border="1">
-
+<table class="table">
 <tr>
   <td>氏名</td>
+  <div class="col-md-10">
   <td><%= @customer.sunname %><%= @customer.name %></td>
+  </div>
 </tr>
 
 <tr>
@@ -37,9 +42,14 @@
   <td><%= @customer.email %></td>
 </tr>
 </table>
+</div>
+  </div>
+    </div>
 
 
-<br><br>
+
+
+
 
 
 

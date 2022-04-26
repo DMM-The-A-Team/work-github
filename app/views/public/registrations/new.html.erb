@@ -1,8 +1,10 @@
-<h2>新規会員登録</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+<%= render "public/shared/error_messages", resource: resource %>
+<h2><strong>新規会員登録</strong></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<%= render "public/shared/error_messages", resource: resource %>
-
   <div class="field">
       <%= f.label :sunname, "名前　　　　　　　　　　　（姓）　" %><%= f.text_field :sunname, autofocus: true, autocomplete: "sunname" %>
       <%= f.label :name, "（名）　" %><%= f.text_field :name, autofocus: true, autocomplete: "name" %>
@@ -43,9 +45,13 @@
       <%= f.submit "新規登録", class: "btn btn-success btn-lg center-block" %>
     </div>
   <% end %>
-
+    <br>
   <h4 style="width: 180px;background-color: #f0f6da; text-align: center;">既に登録済の方</h4>
-  <%= link_to "こちら", new_session_path(resource_name) %><span>からログインしてください。</span>
+  <br>
+  <h4><%= link_to "こちら", new_session_path(resource_name) %><span>からログインしてください。</span></h4>
 
+</div>
+  </div>
+    </div>
 
 
