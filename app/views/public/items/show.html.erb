@@ -1,4 +1,13 @@
-<%= @item.image_id %>
-<%= @item.name %>
-<%= @item.introduction %>
-￥%= @item.price %>(税込み)
+<main>
+  <% if @item.image.attached? %>
+    <%= image_tag @item.image, size: "200x100" %><br>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x100" %><br>
+  <% end %>
+  商品名<%= @item.name %>
+  商品説明<%= @item.introduction %>
+  ￥<%= @item.price %>(税込)
+  <%= form_with model: @item do |f| %>
+    <%=f.hidden_field
+  <%= link_to "カートに入れる" %>
+</main>
