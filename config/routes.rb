@@ -24,6 +24,7 @@ devise_for :admin, controllers: {
   get "orders"=>"public/orders#index"
   get "orders/new"=>"public/orders#new"
   get "orders/confirm"=>"public/orders#confirm"
+  post "orders"=>"public/orders#confirm"
   get "admin"=>"admin/homes#top"
 
   get "items"=>"public/items#index"
