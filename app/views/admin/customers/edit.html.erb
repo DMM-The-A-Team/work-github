@@ -2,6 +2,7 @@
 
 <table border="1">
 
+<%= form_with model: @customer,url:customers_update_path do |f| %>
 <tr>
   <td>
     会員ID
@@ -55,3 +56,4 @@
 </td>
 </tr>
 </table>
+<% end %>

@@ -1,6 +1,10 @@
-<h1>ログイン</h1>
+<div class="container">
+  <div class="row">
+     <div class="col-md-6 col-md-offset-6">
+<h1><strong>ログイン</strong></h1>
+<br>
 
-<h2>会員の方はこちらからログイン</h2>
+<h3>会員の方はこちらからログイン</h3>
       <br>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -11,13 +15,7 @@
         <div class="field">
           <%= f.label :パスワード %>　　　　　　　<%= f.password_field :password, autocomplete: "current-password" %>
         </div>
-
-        <% if devise_mapping.rememberable? %>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-        <% end %>
+      <br>
 
 
         <div class="actions">
@@ -28,7 +26,8 @@
       <br>
       <h3 style="width: 300px;background-color: #a6d3c8; text-align: center; color: white">登録がお済みでない方</h3>
       <br>
-      <p><%= link_to "こちら", "/customers/sign_up" %>から新規登録をしてください</p><br>
+      <h4><p><%= link_to "こちら", "/customers/sign_up" %>から新規登録をしてください</p></h4><br>
 
-      <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-
+</div>
+  </div>
+    </div>

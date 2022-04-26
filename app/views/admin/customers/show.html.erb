@@ -2,46 +2,40 @@
 <br>
 
 
-<tr>
-  <td>会員ID</td>
-  <td></td>
-</tr>
-
+<table class="table">
 <tr>
   <td>氏名</td>
-  <td>customer.sunname  customer.name</td>
+  <div class="col-md-10">
+  <td><%= @customer.sunname %><%= @customer.name %></td>
+  </div>
 </tr>
 
 <tr>
-  <td>フリガナ</td>
-  <td>customer.sunname_kana  customer.name_kana</td>
+  <td>カナ</td>
+  <td><%= @customer.sunname_kana %><%= @customer.name_kana %></td>
 </tr>
 
 <tr>
   <td>郵便番号</td>
-  <td>customer.postal_code</td>
+  <td><%= @customer.postal_code %></td>
 </tr>
 
 <tr>
   <td>住所</td>
-  <td>customer.address</td>
+  <td><%= @customer.address %></td>
 </tr>
 
 <tr>
   <td>電話番号</td>
-  <td>customer.telephone_number</td>
+  <td><%= @customer.telephone_number %></td>
 </tr>
 
 <tr>
   <td>メールアドレス</td>
-  <td>customer.email</td>
+  <td><%= @customer.email %></td>
 </tr>
-
-<tr>
-  <td>会員ステータス</td>
-  <td></td>
-</tr>
-
+</table>
 
 <%= link_to "編集する", admin_customers_edit_path %>
+
 
