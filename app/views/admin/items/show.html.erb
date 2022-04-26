@@ -1,4 +1,11 @@
-商品名<%= @item.name %>
-商品説明<%= @item.introduction %>
-￥<%= @item.price %>(税込み)
-<%= link_to "編集する" %>
+<main>
+  <% if @item.image.attached? %>
+    <%= image_tag @item.image, size: "200x100" %><br>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x100" %><br>
+  <% end %>
+  商品名<%= @item.name %>
+  商品説明<%= @item.introduction %>
+  ￥<%= @item.price %>(税込)
+  <%= link_to "編集する", edit_admins_items_path(@item.id) %>
+</main>
