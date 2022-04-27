@@ -24,7 +24,6 @@ devise_for :admin, controllers: {
   get "orders"=>"public/orders#index"
   get "orders/new"=>"public/orders#new"
   get "orders/confirm"=>"public/orders#confirm"
-  post "orders"=>"public/orders#confirm"
   get "admin"=>"admin/homes#top"
 
   get "items"=>"public/items#index"
@@ -39,12 +38,21 @@ devise_for :admin, controllers: {
   get "customers/my_page" => "public/customers#show"
   get "customers/edit_page" => "public/customers#edit"
   get "admin/customers/index" => "admin/customers#index"
+
   get "admin/customers/:id/edit" => "admin/customers#edit"
   get "admin/customers/:id" => "admin/customers#show"
   patch "customers/update" => "public/customers#update"
   patch "customers/:id" => "admin/customers#update"
+  get "admin/customers/edit" => "admin/customers#edit"
+  get "admin/customers/show" => "admin/customers#show"
+
 
   get "items/:id" => 'public/items#show'
 
-
+  get 'cart_items'=>'public/cart_items#index'
+  patch 'cart_items/:id'=>'public/cart_items#update'
+  delete 'cart_items/:id'=>'public/cart_items#destroy'
+  delete 'cart_items/destroy_all'=>'public/cart_items#destroy_all'
+  post 'cart_items'=>'public/cart_items#create'
+  
 end

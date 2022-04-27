@@ -7,7 +7,9 @@
   商品名<%= @item.name %>
   商品説明<%= @item.introduction %>
   ￥<%= @item.price %>(税込)
-  <%= form_with model: @item do |f| %>
-    <%=f.hidden_field
-  <%= link_to "カートに入れる" %>
+  <%= form_with model: @cart_item,url: '/cart_items'  do |f| %>
+    <%= f.hidden_field :title, :value => :item_id %>
+    <%= f.select :amount, *[1..10] %>
+    <%= f.submit "カートに入れる" %>
+  <% end %>
 </main>
