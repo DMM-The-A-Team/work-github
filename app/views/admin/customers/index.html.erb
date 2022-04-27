@@ -24,6 +24,14 @@
               <%= customer.email %>
             </td>
         <% end %>
+
+            <td class="text-left">
+            <% if @customers.is_deleted == true %>
+            <span>　<i class="text-success"></i>退会済
+            <% else @customers.is_deleted == false %>
+            　　　　<i class="fas fa-bullseye red"></i>有効</span>
+            <% end %>
+            </td>
           </tr>
       </tbody>
     </table>

@@ -38,10 +38,11 @@
    <%= f.text_field :email %>
   </div>
   <div class= "form-group col-md-12">
-   <%= f.submit "変更を保存",class: "btn btn-success" %>
+   <%= f.submit "変更を保存",class: "btn btn-success" %>　　　　<span> <%= link_to "退会する", customers_unsubscribe_path, class: "glyphicon glyphicon-tint btn btn-danger" %></span>
   </div>
   <br><br>
   <% end %>
+
 </div>
   </div>
     </div>

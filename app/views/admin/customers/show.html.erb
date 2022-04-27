@@ -3,6 +3,13 @@
 
 
 <table class="table">
+  <tr>
+     <td>会員ID</td>
+    <div class="col-md-10">
+     <td><%= @customer.id %></td>
+    </div>
+  </tr>
+
 <tr>
   <td>氏名</td>
   <div class="col-md-10">
@@ -34,8 +41,17 @@
   <td>メールアドレス</td>
   <td><%= @customer.email %></td>
 </tr>
-</table>
 
-<%#= link_to "編集する", admin_customers_edit_path(params[:id]) %>
+
+<tr>
+  <td>会員ステータス</td>
+  <td><% if @customer.is_deleted == true %>
+<span>　<strong><i class="text-secondary">退会済</i></strong>
+<% else @customer.is_deleted == false %>
+<strong><i class="text-success">有効</i></span></strong>
+<% end %></td>
+</tr>
+</table>
+<%= link_to "編集する", admin_customers_edit_path(params[:id]) %>
 
 
