@@ -1,7 +1,7 @@
 class Admin::CustomersController < ApplicationController
 
   def index
-  @customers = Customer.all
+   @customers = Customer.all
   end
 
   def show
@@ -13,9 +13,9 @@ class Admin::CustomersController < ApplicationController
   end
 
   def update
-   @customers = Customer.find(params[:id])
+   @customer = Customer.find(params[:id])
    if @customer.update(customer_params)
-    redirect_to customers_
+    redirect_to admin_customers_index_path
    else
     render :edit
    end
@@ -25,7 +25,7 @@ class Admin::CustomersController < ApplicationController
 private
 
   def customer_params
-  params.require(:customer).permit(:sunname, :name, :sunname_kana, :name_kana, :postal_code, :address, :telephone_number, :email)
+  params.require(:customer).permit(:sunname, :name, :sunname_kana, :name_kana, :postal_code, :address, :telephone_number, :email, :is_deleted)
   end
 
 end

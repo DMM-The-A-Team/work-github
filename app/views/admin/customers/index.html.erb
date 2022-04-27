@@ -18,20 +18,24 @@
               <%= customer.id %>
             </td>
             <td class="text-left">
-              <%= link_to customer.sunname,"admin_customers_path(customer)" %><%= link_to customer.name, "" %>
+              <%= link_to customer.sunname, admin_show_path(customer.id) %>
+              <%= link_to customer.name, admin_show_path(customer.id) %>
             </td>
             <td class="text-left">
               <%= customer.email %>
             </td>
-        <% end %>
-
             <td class="text-left">
-            <% if @customers.is_deleted == true %>
-            <span>　<i class="text-success"></i>退会済
-            <% else @customers.is_deleted == false %>
-            　　　　<i class="fas fa-bullseye red"></i>有効</span>
-            <% end %>
+              <% if customer.is_deleted == true %>
+                <strong><i class="text-secondary">退会済</i></strong>
+              <% else customer.is_deleted == false %>
+                <strong><i class="text-success">有効</i></span></strong>
+              <% end %>
             </td>
+        <% end %>
+         </td>
           </tr>
       </tbody>
     </table>
+  
+
+

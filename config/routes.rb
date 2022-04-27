@@ -43,13 +43,9 @@ devise_for :admin, controllers: {
   patch "customers/withdraw" => "public/customers#withdraw"
 
   get "admin/customers/index" => "admin/customers#index"
-  get "admin/customers/:id" => "admin/customers#show"
-  get "admin/customers/:id/edit" => "admin/customers#edit"
-
-  get "admin/customers/edit" => "admin/customers#edit"
-  get "admin/customers/show" => "admin/customers#show"
-
-  patch "customers/:id" => "admin/customers#update"
+  get "admin/customers/:id" => "admin/customers#show",as: "admin_show"
+  get "admin/customers/:id/edit" => "admin/customers#edit",as: "admin_edit"
+  patch "customers/:id" => "admin/customers#update",as: "update_admin_customers"
 
   get "items/:id" => 'public/items#show'
 
