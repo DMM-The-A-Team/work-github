@@ -7,40 +7,27 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    # @orderはでかい箱で、その中に小さい箱を指定するためにストロングパラメーターを指定している。
-
-    # if文を記述して、hidden fieldが作動するようにする。
-    # ご自身の住所と配送先住所が選択された場合はhiddenで処理
-
-    # 現在memberに登録されている住所であれば
-    @customer = current_customer
     @order = Order.new(order_params)
     if params[:order][:address_option] == "0"
-        @order.shipping_postal_code = @customer.postal_code
-        @order.shipping_address = @customer.address
-        @order.shipping_name = @customer.sunname + @customer.name
-    # collection.selectであれば
+      @order.postal_code = current_customer.postal_code
+      @order.address = current_customer.address
+      @order.name = current_customer.sunname + current_customer.name
     elsif params[:order][:address_option] == "1"
-        ship = Address.find(params[:order][:customer_id])
-        @order.shipping_postal_code = ship.postal_code
-        @order.shipping_address = ship.address
-        @order.shipping_name = ship.name
-    # 新規住所入力であれば
-    elsif params[:order][:address_option] = "2"
-        @order.shipping_postal_code = params[:order][:shipping_postal_code]
-        @order.shipping_address = params[:order][:shipping_address]
-        @order.shipping_name = params[:order][:shipping_name]
-    else
-        render 'new'
+      @address = Address.find(params[:order][:address_id])
+      @order.postal_code = @address.postal_code
+      @order.address = @address.address
+      @order.name = @address.name
+    elsif params[:order][:address_option] == "2"
+      @order.postal_code = params[:order][:shipping_postal_code]
+      @order.address = params[:order][:shipping_address]
+      @order.name = params[:order][:shipping_name]
     end
-    @cart_items = @customer.cart_items.all
-    @order.customer_id = @customer.id
   end
 
   def create
     @customer = current_customer
     @order = Order.new(order_params)
-    @order.member_id = @customer.id
+    @order.customer_id = @customer.id
     @order.save
     # ordered_itmemの保存
     @customer.cart_items.each do |cart_item| #カートの商品を1つずつ取り出しループ
@@ -53,11 +40,11 @@ class Public::OrdersController < ApplicationController
     end #ループ終わり
 
     @customer.cart_items.destroy_all #カートの中身を削除
-    redirect_to thanx_orders_path
+    redirect_to orders_complete_path
   end
 
   # 注文完了画面
-  def thanx
+  def about
   end
 
   # 注文情報履歴一覧
@@ -73,7 +60,7 @@ class Public::OrdersController < ApplicationController
 
   private
    def order_params
-     params.require(:order).permit(:customer_id, :address, :payment, :shipping_cost, :total_price, :order_status)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
    end
 
 
