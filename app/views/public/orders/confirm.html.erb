@@ -1,25 +1,7 @@
 <h1>public/orders/confirm</h1>
 
 <h4>注文情報確認</h4>
-<tr>
-  <th>商品名</th>
-  <th>単価(税込)</th>
-  <th>数量</th>
-  <th>小計</th>
-</tr>
-<% total = 0 %>
-<% @cart_items.each do |cart_item| %> 
- <tr>
-  <td><%= cart_item.item.name %></td>
-  <td><%= (cart_item.item.price*1.08).to_i %></td>
-  <td><%= cart_item.quantity %></td>
-  <td>
-   <% subtotal = ((cart_item.item.price*cart_item.quantity)*1.08).to_i %>
-   <%= subtotal %>
-  </td>
- </tr>
- <% total += (cart_item.item.price*cart_item.quantity)*1.08 %>
-<% end %>
+
 
 <h4>支払い方法</h4>
   <%= @order.payment_method %>
@@ -29,7 +11,7 @@
   <%= @order.name %>
 
  <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
-   <%= f.hidden_field :member_id %>
+   <%= f.hidden_field :customer_id %>
    <%= f.hidden_field :postage %>
    <%= f.hidden_field :total_payment %>
    <%= f.hidden_field :payment_method %>

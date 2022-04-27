@@ -24,8 +24,12 @@ devise_for :admin, controllers: {
   get "orders"=>"public/orders#index"
   get "orders/new"=>"public/orders#new"
   post "orders/confirm"=>"public/orders#confirm"
+  post "orders/create"=>"public/orders#create"
   get "admin"=>"admin/homes#top"
-  get "orders/complete"=>"public/orders#about"
+  get "orders/complete"=>"public/orders#complete"
+  get "admin/orders/:id"=>"admin/orders#show"
+  patch "orders/:id"=>"admin/orders#update"
+  get "orders/:id"=>"public/orders#show"
 
   get "items"=>"public/items#index"
   get "admin/items/new"=>"admin/items#new"
@@ -55,5 +59,5 @@ devise_for :admin, controllers: {
   delete 'cart_items/:id'=>'public/cart_items#destroy'
   delete 'cart_items/destroy_all'=>'public/cart_items#destroy_all'
   post 'cart_items'=>'public/cart_items#create'
-  
+
 end
