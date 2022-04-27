@@ -1,3 +1,4 @@
+<br>
 <h2>会員一覧</h2>
 
 <table class="table table-hover table-bordered table-condensed">
@@ -17,7 +18,7 @@
               <%= customer.id %>
             </td>
             <td class="text-left">
-              <%= link_to customer.sunname," "%><%= link_to customer.name, "" %>
+              <%= link_to customer.sunname,"admin_customers_path(customer)" %><%= link_to customer.name, "" %>
             </td>
             <td class="text-left">
               <%= customer.email %>

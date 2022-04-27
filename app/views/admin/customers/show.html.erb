@@ -1,4 +1,4 @@
-<h3>さんの会員詳細</h3>
+<h3><%= @customer.sunname %><%= @customer.name %>さんの会員詳細</h3>
 <br>
 
 
@@ -36,6 +36,6 @@
 </tr>
 </table>
 
-<%= link_to "編集する", admin_customers_edit_path %>
+<%#= link_to "編集する", admin_customers_edit_path(params[:id]) %>
 
 
