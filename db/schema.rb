@@ -61,7 +61,11 @@ ActiveRecord::Schema.define(version: 2022_04_25_053832) do
   end
 
   create_table "cart_items", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "customer_id"
     t.integer "amount"
+    t.datetime "create_at"
+    t.datetime "update_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -98,6 +102,7 @@ ActiveRecord::Schema.define(version: 2022_04_25_053832) do
     t.text "introduction"
     t.integer "price"
     t.boolean "is_active"
+    t.integer "genre_id"
     t.datetime "create_at"
     t.datetime "update_ut"
     t.datetime "created_at", precision: 6, null: false
