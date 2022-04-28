@@ -27,5 +27,4 @@ private
   def customer_params
   params.require(:customer).permit(:sunname, :name, :sunname_kana, :name_kana, :postal_code, :address, :telephone_number, :email, :is_deleted)
   end
-
 end
