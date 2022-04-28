@@ -35,11 +35,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   get "admin/orders/:id"=>"admin/orders#show"
   patch "orders/:id"=>"admin/orders#update"
   get "orders/:id"=>"public/orders#show"
-  get "items/id"=>"public/items#show"
 
 
 
   get "public/items"=>"public/items#index"
+  get 'public/item/:id' => 'public/items#show',as: 'item'
   get "admin/items/new"=>"admin/items#new"
   get 'admin/items'=>'admin/items#index'
   post 'admin/items'=>'admin/items#create'
@@ -58,8 +58,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   get "admin/customers/:id" => "admin/customers#show",as: "admin_show"
   get "admin/customers/:id/edit" => "admin/customers#edit",as: "admin_edit"
   patch "customers/:id" => "admin/customers#update",as: "update_admin_customers"
-
-  get "items/:id" => 'public/items#show'
 
 
 
