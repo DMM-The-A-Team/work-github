@@ -8,7 +8,7 @@
           <% else %>
             <%= image_tag 'no_image', size: "200x100" %><br>
           <% end %>
-            <%=link_to item.name, items_id_path(item.id)%><br>
+            <%=link_to item.name, item_path(item.id)%><br>
             ￥<%= item.price %><br>
         <% end %>
     </div>
