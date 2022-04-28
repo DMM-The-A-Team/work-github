@@ -12,7 +12,7 @@
 <h2>新着商品</h2>
 
 <% @items.last(4).each do |item| %>
-  <%= link_to items_path(item.id), data: {"turbolinks" => false} do %>
+  <%= link_to public_items_path(item.id), data: {"turbolinks" => false} do %>
     <% if item.image.attached? %>
       <%= image_tag item.image, size: "200x100" %><br>
     <% else %>
@@ -22,5 +22,5 @@
     ¥<%= item.price.to_s(:delimited, delimiter: ',') %><br>
   <% end %>
 <% end %>
-<%= link_to '全ての商品を見る>', items_path %>
+<%= link_to '全ての商品を見る>', public_items_path %>
 </div>
