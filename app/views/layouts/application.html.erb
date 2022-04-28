@@ -9,31 +9,65 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <br><br>
-
-
-  </head>
-
-  <body>
-    <header>
+</head>
+<body>
+<header class="navbar navbar-expand-lg navbar-dark bg-dark">
+ <div class="container">
+  <nav class='nav navbar-nav navbar-left' >
+   <h2><a class="navbar-brand"href = "/" >ながのCake</a></h2>
+  </nav>
+  <ul class="d-flex flex-row navbar-nav ml-auto">
     <% if customer_signed_in? %>
-      <%= link_to "マイページ", customers_my_page_path %>
-      <%= link_to "商品一覧", public_items_path %>
-      <%= link_to "カート", cart_items_path %>
-      <%= button_to "ログアウト", destroy_customer_session_path, method: :delete %>
+
+    <li class="nav-item m-3">
+      <%= link_to "マイページ", customers_my_page_path, class: 'btn btn-outline-secondary' %>
+    </li>
+    <li class="nav-item m-3">
+      <%= link_to "商品一覧", items_path, class: 'btn btn-outline-secondary' %>
+    </li>
+    <li class="nav-item m-3">
+      <%= link_to "カート", cart_items_path, class: 'btn btn-outline-secondary' %>
+    </li>
+    <li class="nav-item m-3">
+      <%= button_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'btn btn-outline-secondary' %>
+    </li>
     <% elsif admin_signed_in? %>
-      <%= link_to "商品一覧", admins_items_path %>
-      <%= link_to "会員一覧", admins_customers_path %>
-      <%= link_to "注文履歴一覧", admins_orders_path %>
-      <%= link_to "ジャンル一覧", admins_genres_path %>
-      <%= link_to "About", about_path %>
-      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+    <li class="nav-item m-3">
+      <%= link_to "商品一覧", admins_items_path, class: 'btn btn-outline-secondary' %>
+    </li>
+    <li class="nav-item m-3">
+      <%= link_to "会員一覧", admins_customers_path, class: 'btn btn-outline-secondary' %>
+    </li>
+    <li class="nav-item m-3">
+      <%= link_to "注文履歴一覧", admins_orders_path, class: 'btn btn-outline-secondary' %>
+    </li>
+    <li class="nav-item m-3">
+      <%= link_to "ジャンル一覧", admins_genres_path, class: 'btn btn-outline-secondary' %>
+    </li>
+    <li class="nav-item m-3">
+      <%= link_to "About", about_path, class: 'btn btn-outline-secondary' %>
+    </li>
+    <li class="nav-item m-3">
+      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-outline-secondary' %>
+    </li>
     <% else %>
-      <%= link_to "About", about_path %>
-      <%= link_to "商品一覧", public_items_path %>
-      <%= link_to "新規登録", new_customer_registration_path %>
-      <%= link_to "ログイン", new_customer_session_path %>
+
+    <li class="nav-item m-3">
+      <%= link_to "About", about_path, class: 'btn btn-outline-secondary' %>
+    </li>
+    <li class="nav-item m-3">
+      <%= link_to "商品一覧", items_path, class: 'btn btn-outline-secondary' %>
+    </li>
+    <li class="nav-item m-3">
+      <%= link_to "新規登録", new_customer_registration_path, class: 'btn btn-outline-secondary' %>
+    </li>
+    <li class="nav-item m-3">
+      <%= link_to "ログイン", new_customer_session_path, class: 'btn btn-outline-secondary' %>
+    </li>
     <% end %>
-    </header>
+  </ul>
+  </div>
+</header>
     <%= yield %>
   </body>
 </html>

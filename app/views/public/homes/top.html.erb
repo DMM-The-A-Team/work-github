@@ -1,11 +1,14 @@
-<h1>public/Topページ</h1>
-
-<h4>
+<div class="container">
+  <div class="row">
+    <div class="col-6"><br><br>
+  <h4>
   <br>ようこそ、ながのCAKEへ！</br>
   <br>このサイトは、ケーキ販売のECサイトになります。</br>
   <br>会員でない方も商品の閲覧は出来ますが、</br>
   <br>購入には会員登録が必要になります</br>
-</h4>
+  </h4>
+    </div>
+  </div><br>
 <h2>新着商品</h2>
 <% @items.last(4).each do |item| %>
   <%= link_to items_path(item.id), data: {"turbolinks" => false} do %>

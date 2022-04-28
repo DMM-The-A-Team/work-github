@@ -23,11 +23,6 @@ devise_for :admin, controllers: {
   get "about"=>"public/homes#about"
   get "orders"=>"public/orders#index"
   get "orders/new"=>"public/orders#new"
-
-  get "orders/confirm"=>"public/orders#confirm"
-  post "orders"=>"public/orders#confirm"
-  get "admin"=>"admin/homes#top"
-
   post "orders/confirm"=>"public/orders#confirm"
   post "orders/create"=>"public/orders#create"
   get "admin"=>"admin/homes#top"
@@ -37,7 +32,7 @@ devise_for :admin, controllers: {
   get "orders/:id"=>"public/orders#show"
 
 
-  get "public/items"=>"public/items#index"
+  get "items"=>"public/items#index"
   get "admin/items/new"=>"admin/items#new"
   get 'admin/items'=>'admin/items#index'
   post 'admin/items'=>'admin/items#create'
@@ -48,24 +43,22 @@ devise_for :admin, controllers: {
 
   get "customers/my_page" => "public/customers#show"
   get "customers/edit_page" => "public/customers#edit"
-  get  "customers/unsubscribe" => "public/customers#unsubscribe"
-  patch "customers/update" => "public/customers#update"
-  patch "customers/withdraw" => "public/customers#withdraw"
-
   get "admin/customers/index" => "admin/customers#index"
-  get "admin/customers/:id" => "admin/customers#show",as: "admin_show"
-  get "admin/customers/:id/edit" => "admin/customers#edit",as: "admin_edit"
-  patch "customers/:id" => "admin/customers#update",as: "update_admin_customers"
+
+  get "admin/customers/:id/edit" => "admin/customers#edit"
+  get "admin/customers/:id" => "admin/customers#show"
+  patch "customers/update" => "public/customers#update"
+  patch "customers/:id" => "admin/customers#update"
+  get "admin/customers/edit" => "admin/customers#edit"
+  get "admin/customers/show" => "admin/customers#show"
+
 
   get "items/:id" => 'public/items#show'
 
-
-
   get 'cart_items'=>'public/cart_items#index'
-  patch 'cart_items/:id'=>'public/cart_items#update', as: 'cart_item_update'
-  delete 'cart_items/:id'=>'public/cart_items#destroy', as: 'cart_item_delete'
-  delete 'cart_items/destroy_all'=>'public/cart_items#destroy_all',as: 'cart_item_destroy_all'
+  patch 'cart_items/:id'=>'public/cart_items#update'
+  delete 'cart_items/:id'=>'public/cart_items#destroy'
+  delete 'cart_items/destroy_all'=>'public/cart_items#destroy_all'
   post 'cart_items'=>'public/cart_items#create'
-
 
 end
