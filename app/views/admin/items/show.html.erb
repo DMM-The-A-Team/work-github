@@ -1,11 +1,13 @@
 <main>
-  <% if @item.image.attached? %>
-    <%= image_tag @item.image, size: "200x100" %><br>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x100" %><br>
-  <% end %>
-  商品名<%= @item.name %>
-  商品説明<%= @item.introduction %>
-  ￥<%= @item.price %>(税込)
-  <%= link_to "編集する", edit_admins_items_path(@item.id) %>
+  <div class="mx-auto" style="width: 200px;">
+    <% if @item.image.attached? %>
+      <%= image_tag @item.image, size: "200x100" %><br>
+    <% else %>
+      <%= image_tag 'no_image', size: "200x100" %><br>
+    <% end %>
+    商品名<%= @item.name %><br>
+    商品説明<%= @item.introduction %><br>
+    税込価格<%= @item.price %><br>
+    <%= link_to "編集する", edit_admins_items_path(@item.id), class:"btn btn-success" %>
+  </div>
 </main>
