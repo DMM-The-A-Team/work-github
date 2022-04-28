@@ -18,8 +18,8 @@
               <%= customer.id %>
             </td>
             <td class="text-left">
-              <%= link_to customer.sunname, admin_show_path(customer.id) %>
-              <%= link_to customer.name, admin_show_path(customer.id) %>
+              <%= link_to customer.sunname, admin_customers_show_path(customer.id) %>
+              <%= link_to customer.name, admin_customers_show_path(customer.id) %>
             </td>
             <td class="text-left">
               <%= customer.email %>
@@ -36,6 +36,6 @@
           </tr>
       </tbody>
     </table>
-  
+
 
 
