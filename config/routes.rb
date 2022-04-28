@@ -31,9 +31,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   post "orders/create"=>"public/orders#create"
   get "admin"=>"admin/homes#top"
   get "orders/complete"=>"public/orders#complete"
+  get "admin/orders/index"=>"admin/orders#index"
   get "admin/orders/:id"=>"admin/orders#show"
   patch "orders/:id"=>"admin/orders#update"
   get "orders/:id"=>"public/orders#show"
+  get "items/id"=>"public/items#show"
+
 
 
   get "public/items"=>"public/items#index"
