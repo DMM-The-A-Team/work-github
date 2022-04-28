@@ -9,6 +9,12 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <br><br>
+
+  </head>
+
+  <body>
+    <header>
+
 </head>
 <body>
 <header class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -17,6 +23,7 @@
    <h2><a class="navbar-brand"href = "/" >ながのCake</a></h2>
   </nav>
   <ul class="d-flex flex-row navbar-nav ml-auto">
+
     <% if customer_signed_in? %>
 
     <li class="nav-item m-3">
