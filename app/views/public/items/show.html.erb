@@ -1,13 +1,11 @@
 <main>
-  <div class="mx-auto" style="width: 200px;">
-    <div class="col-xs-1" ></div>
-  　<div class="col-xs-5" style ="margin: 100px 0 100px 0">
+  <div class="container mt-3">
+  <div class="row justify-content-between mb-4">
       <% if @item.image.attached? %>
         <%= image_tag @item.image, size: "200x100" %><br>
       <% else %>
         <%= image_tag 'no_image', size: "200x100" %><br>
       <% end %>
-    </div>
       商品名<%= @item.name %>
       商品説明<%= @item.introduction %>
       ￥<%= @item.price %>(税込)
@@ -16,6 +14,6 @@
         <%= f.select :amount, *[1..10] %>
         <%= f.submit "カートに入れる", class:"btn btn-success" %>
       <% end %>
-    </div>
+  </div>
   </div>
 </main>
