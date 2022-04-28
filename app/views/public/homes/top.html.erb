@@ -10,6 +10,7 @@
     </div>
   </div><br>
 <h2>新着商品</h2>
+
 <% @items.last(4).each do |item| %>
   <%= link_to items_path(item.id), data: {"turbolinks" => false} do %>
     <% if item.image.attached? %>
