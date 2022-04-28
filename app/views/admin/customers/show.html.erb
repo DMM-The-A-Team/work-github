@@ -51,7 +51,10 @@
 <strong><i class="text-success">有効</i></span></strong>
 <% end %></td>
 </tr>
+
+<tr>
+  <td><%= link_to "編集する", admin_edit_path(@customer.id),class: "btn btn-success" %></td>
+</tr>
 </table>
-<%= link_to "編集する", admin_edit_path(@customer.id) %>
 
 
