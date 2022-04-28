@@ -31,10 +31,11 @@ devise_for :admin, controllers: {
   patch "orders/:id"=>"admin/orders#update"
   get "orders/:id"=>"public/orders#show"
 
+
   get "items"=>"public/items#index"
   get "admin/items/new"=>"admin/items#new"
-  post 'items'=>'admin/items#create'
   get 'admin/items'=>'admin/items#index'
+  post 'admin/items'=>'admin/items#create'
   get 'admin/items/:id/edit'=>'admin/items#edit',as: 'edit_admins_items'
   get 'admin/items/:id'=>'admin/items#show'
   patch 'items/:id'=>'admin/items#update',as: 'update_admins_items'
