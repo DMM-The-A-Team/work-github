@@ -72,7 +72,7 @@ class Public::OrdersController < ApplicationController
 
   def about
   end
-  
+
   def index
     @orders = current_customer.orders
   end
