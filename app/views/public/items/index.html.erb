@@ -1,14 +1,14 @@
 <div class="mx-auto" style="width: 200px;">
+  <h2>商品一覧</h2>
   <div class="row">
     <div class= "col-md-8 offset-md-1">
-        <h2>商品一覧</h2>
         <% @items.each do |item| %>
           <% if item.image.attached? %>
             <%= image_tag item.image, size: "200x100" %><br>
           <% else %>
             <%= image_tag 'no_image', size: "200x100" %><br>
           <% end %>
-            <%=link_to item.name, item_path(item.id)%><br>
+            <%=link_to item.name, item_path(item.id) %><br>
             ￥<%= item.price %><br>
         <% end %>
     </div>
