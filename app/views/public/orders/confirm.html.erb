@@ -1,6 +1,43 @@
 <h1>public/orders/confirm</h1>
 
-<h4>注文情報確認</h4>
+注文情報確認
+<table>
+<thead>
+ <tr>
+  <th>商品名</th>
+  <th></th>
+  <th>単価</th>
+  <th>数量</th>
+  <th>小計</th>
+ </tr>
+</thead>
+<tbody>
+ <% @cart_items.each do |cart_item| %>
+  <tr>
+   <%= image_tag cart_item.item.get_image, size: '100x40' %></th>
+   <td><%= cart_item.item.name %></td>
+   <td><%= cart_item.item.get_tax_include_price.to_s + "円" %></td>
+   <td><%= cart_item.amount.to_s + "個" %></td>
+   <td><%= (cart_item.amount * cart_item.item.get_tax_include_price).to_s + "円" %></td>
+  </tr>
+ <% end %>
+</tbody>
+</table>
+
+<table>
+  <tr>
+    <td>送料</td>
+    <td><%= @order.postage.to_s + "円" %></td>
+  </tr>
+  <tr>
+    <td>商品合計</td>
+    <td><%= @order.total_price.to_s + "円" %></td>
+  </tr>
+  <tr>
+    <td>請求額合計</td>
+    <td><%= (@order.postage + @order.total_price).to_s + "円" %></td>
+  </tr>
+</table>
 
 
 <h4>支払い方法</h4>
