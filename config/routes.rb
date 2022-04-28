@@ -55,9 +55,9 @@ devise_for :admin, controllers: {
   get "items/:id" => 'public/items#show'
 
   get 'cart_items'=>'public/cart_items#index'
-  patch 'cart_items/:id'=>'public/cart_items#update'
-  delete 'cart_items/:id'=>'public/cart_items#destroy'
-  delete 'cart_items/destroy_all'=>'public/cart_items#destroy_all'
+  patch 'cart_items/:id'=>'public/cart_items#update', as: 'cart_item_update'
+  delete 'cart_items/:id'=>'public/cart_items#destroy', as: 'cart_item_delete'
+  delete 'cart_items/destroy_all'=>'public/cart_items#destroy_all',as: 'cart_item_destroy_all'
   post 'cart_items'=>'public/cart_items#create'
 
 end
