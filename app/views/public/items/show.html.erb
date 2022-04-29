@@ -1,11 +1,16 @@
 <main>
-  <div class="container mt-3">
-  <div class="row justify-content-between mb-4">
-      <% if @item.image.attached? %>
-        <%= image_tag @item.image, size: "200x100" %><br>
-      <% else %>
-        <%= image_tag 'no_image', size: "200x100" %><br>
-      <% end %>
+  <div class="container takasa">
+  <div class="row">
+    <div class="col-xs-9">
+  	  <div class="row" style="margin-top: 50px;">
+  	  	<div style="float: left; margin: 15px 50px;">
+        <% if @item.image.attached? %>
+          <%= image_tag @item.image, size: "200x100" %><br>
+        <% else %>
+          <%= image_tag 'no_image', size: "200x100" %><br>
+        <% end %>
+    </div>
+    <div class="col-6 bgred">
       商品名<%= @item.name %>
       商品説明<%= @item.introduction %>
       ￥<%= @item.price %>(税込)
@@ -14,6 +19,7 @@
         <%= f.select :amount, *[1..10] %>
         <%= f.submit "カートに入れる", class:"btn btn-success" %>
       <% end %>
+    </div>
   </div>
   </div>
 </main>
