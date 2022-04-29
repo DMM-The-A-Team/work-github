@@ -1,28 +1,40 @@
-<h1>orders/index</h1>
-<h2>注文履歴一覧</h2>
-<tr>
-	<th>注文日</th>
-	<th>配送日</th>
-	<th>注文商品</th>
-	<th>支払料金</th>
-	<th>ステータス</th>
-	<th>注文詳細</th>
-</tr>
-<% @orders.each do |order|%>
-<tr>
-  <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-		<td>
-		  <%= order.post_code %>
-			<%= order.address %>
-			<%= order.name %>
-		</td>
-		<td>
-			<% order.order_details.each do |order_detail| %>
-			　<%= order_detail.item.name %><br>
-			<% end %>
-			</td>
-			<td><%= order.total_payment.to_s(:delimited, delimiter: ',') %></td>
-			<td><%= order.order_status %></td>
-			<td><%= link_to "表示する", customers_order_path(order), class: "btn btn-primary" %></td>
-		</tr>
-<% end %>
+
+        <p>注文履歴一覧</p>
+    <table>
+      <thead>
+        <tr>
+          <th>注文日</th>
+          <th>配送先</th>
+          <th>注文商品</th>
+          <th>支払い金額</th>
+          <th>ステータス</th>
+          <th>注文詳細</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <th>
+            <%= order.created_at.strftime('%Y/%m/%d') %>
+          </th>
+          <td>
+            <%= "〒 #{order.customer.postal_code}" %><br>
+            <%= order.customer.address %><br>
+            <%= order.customer.name %>
+           </td>
+          <td>
+            <%# order.items.each do |item| %>
+              <%#= item.name %><br>
+            <%# end %>
+          <td><%= order.total_payment.to_s(:delimited) %>円</td>
+          <td><%= order.status_i18n %></td>
+          </td>
+          <td>
+         <%= link_to orders_path(order.id) do %>
+           <button class="btn btn-primary">表示する</button>
+         <% end %>
+          </td>
+        </tr>
+       <% end %>
+      </tbody>
+    </table>

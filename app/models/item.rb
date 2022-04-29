@@ -5,4 +5,7 @@ class Item < ApplicationRecord
   #belongs_to :customer
 
   has_one_attached :image
+  def get_tax_include_price
+    (price*1.1).floor
+  end
 end
