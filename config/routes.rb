@@ -20,13 +20,15 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get "about"=>"public/homes#about"
-  get "admin"=>"admin/homes#top"
-  namespace :public do
-    resources :orders, only: [:confirm, :create, :new, :inde,:show]
-  end
+  post "orders"=>"public/orders#create"
+  get "orders"=>"public/orders#index"
+  get "orders/new"=>"public/orders#new"
+
   get "orders/confirm"=>"public/orders#confirm"
   post "orders/confirm"=>"public/orders#confirm"
-  get "orders"=>"public/orders#index"
+  get "admin"=>"admin/homes#top"
+
+
   get "admin"=>"admin/homes#top"
   get "orders/complete"=>"public/orders#complete"
   get "admin/orders/index"=>"admin/orders#index"
