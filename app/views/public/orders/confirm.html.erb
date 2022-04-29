@@ -47,7 +47,7 @@
   <%= @order.address %>
   <%= @order.name %>
 
- <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+ <%= form_with model: @order, url: public_orders_path, method: :post, local: true do |f| %>
    <%= f.hidden_field :customer_id %>
    <%= f.hidden_field :total_payment %>
    <%= f.hidden_field :payment_method %>
@@ -55,5 +55,5 @@
    <%= f.hidden_field :address %>
    <%= f.hidden_field :postal_code %>
    <%= f.hidden_field :status %>
-   <%= link_to '注文を確定する', orders_path(id: @order.id), :method => :post, class: "btn btn-success" %>
+   <%= link_to '注文を確定する', orders_confirm_path(@order.id), :method => :post, class: "btn btn-success" %>
  <% end %>
