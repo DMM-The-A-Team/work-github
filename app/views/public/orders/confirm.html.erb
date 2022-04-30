@@ -53,7 +53,7 @@
   <%= f.hidden_field :shipping_address, :value => @order.address %><br>
   <%= @order.name %>
   <%= f.hidden_field :name, :value => @order.name %>
-
+<% end %>
 
  <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
    <%= f.hidden_field :customer_id %>
@@ -63,5 +63,5 @@
    <%= f.hidden_field :address %>
    <%= f.hidden_field :postal_code %>
    <%= f.hidden_field :status %>
-   <%= link_to '注文を確定する', orders_path(id: @order.id), :method => :post, class: "btn btn-success" %>
+   <%= f.submit '注文を確定する', class: "btn btn-success" %>
  <% end %>
