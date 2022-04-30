@@ -14,11 +14,12 @@
           <th colspan="1"></th>
 
           <th>小計</th>
-          <th></th>
+          <th></th>x
         </tr>
       </thead>
 
       <tbody>
+
         <% @cart_items.each do |cart_item| %>
         <tr>
           <td><%= image_tag cart_item.item.image, size: "200x100" %> <%= cart_item.item.name %></td>
@@ -31,13 +32,12 @@
           <td><%= (cart_item.item.price * 1.1).floor * cart_item.amount %></td>
           <td><%= button_to "削除", cart_item_delete_path(cart_item), method: :delete %></td>
         </tr>
-
-        <% @cart_price += (cart_item.item.price * 1.1).floor * cart_item.amount %>
+     <% @cart_price += (cart_item.item.price * 1.1).floor * cart_item.amount %>
           <td></td>
           <td></td>
         </tr>
         <% end %>
-      </tbody>
+    </tbody>
     </table>
   </div>
   </div>

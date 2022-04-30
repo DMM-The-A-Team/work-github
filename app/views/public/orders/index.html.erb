@@ -23,9 +23,9 @@
             <%= order.customer.name %>
            </td>
           <td>
-            <%# order.items.each do |item| %>
-              <%#= item.name %><br>
-            <%# end %>
+            <% order.items.each do |item| %>
+              <%= item.name %><br>
+            <% end %>
           <td><%= order.total_payment.to_s(:delimited) %>円</td>
           <td><%= order.status_i18n %></td>
           </td>
