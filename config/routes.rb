@@ -39,10 +39,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   get "items/id"=>"public/items#show"
 
 
-  get 'admin/items/:id'=>'admin/items#show',as: 'admin_item'
   get "public/items"=>"public/items#index"
   get 'public/item/:id' => 'public/items#show',as: 'item'
-  get "admin/items/new"=>"admin/items#new"
+  get "admin/items/new"=>"admin/items#new", as: 'admin_item_new'
+   get 'admin/items/:id'=>'admin/items#show',as: 'admin_item'
   get 'admin/items'=>'admin/items#index'
   post 'admin/items'=>'admin/items#create'
   get 'admin/items/:id/edit'=>'admin/items#edit',as: 'edit_admins_items'
