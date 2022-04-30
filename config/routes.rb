@@ -23,7 +23,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   get "orders"=>"public/orders#index"
   post "orders"=>"public/orders#create"
   get "orders/new"=>"public/orders#new"
+  get "orders/complete"=>"public/orders#complete"
   get "orders/:id"=>"public/orders#show"
+
 
   get "orders/confirm"=>"public/orders#confirm"
   post "orders/confirm"=>"public/orders#confirm"
@@ -31,21 +33,19 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 
   get "admin"=>"admin/homes#top"
-  get "orders/complete"=>"public/orders#complete"
-  get "admin/orders/:id"=>"admin/orders#show",as: 'admin_order'
   get "admin/orders/index"=>"admin/orders#index"
+  get "admin/orders/:id"=>"admin/orders#show",as: 'admin_order'
   patch "orders/:id"=>"admin/orders#update"
   get "items/id"=>"public/items#show"
 
 
-
+  get 'admin/items/:id'=>'admin/items#show',as: 'admin_item'
   get "public/items"=>"public/items#index"
   get 'public/item/:id' => 'public/items#show',as: 'item'
   get "admin/items/new"=>"admin/items#new"
   get 'admin/items'=>'admin/items#index'
   post 'admin/items'=>'admin/items#create'
   get 'admin/items/:id/edit'=>'admin/items#edit',as: 'edit_admins_items'
-  get 'admin/items/:id'=>'admin/items#show'
   patch 'items/:id'=>'admin/items#update',as: 'update_admins_items'
 
 
