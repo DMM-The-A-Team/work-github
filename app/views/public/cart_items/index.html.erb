@@ -1,0 +1,52 @@
+<main>
+  <div class="container mt-3">
+  <div class="row justify-content-between mb-4">
+      <div class="title col-md-auto px-auto">
+        <h2 class="text-dark bg-light text-center">ショッピングカート</h2>
+
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+
+          <th colspan="1"></th>
+
+          <th>小計</th>
+          <th></th>x
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td><%= image_tag cart_item.item.image, size: "200x100" %> <%= cart_item.item.name %></td>
+          <td><%= (cart_item.item.price * 1.1).floor %></td>
+
+        <%= form_with model: cart_item, url: cart_item_update_path(cart_item), method: :patch do |f| %>
+          <td><%= f.select :amount, *[1..10] %></td>
+          <td><%= f.submit "変更", class:"btn btn-success" %></td>
+        <% end %>
+          <td><%= (cart_item.item.price * 1.1).floor * cart_item.amount %></td>
+          <td><%= button_to "削除", cart_item_delete_path(cart_item), method: :delete %></td>
+        </tr>
+     <% @cart_price += (cart_item.item.price * 1.1).floor * cart_item.amount %>
+          <td></td>
+          <td></td>
+        </tr>
+        <% end %>
+    </tbody>
+    </table>
+  </div>
+  </div>
+    <%= link_to "買い物を続ける", "public/items", class:"btn btn-success" %>
+    <div class="text-right" >
+      合計金額 <%= @cart_price %>
+    </div>
+    <div class="mx-auto" style="width: 200px;">
+    <%= link_to "情報入力に進む",  orders_new_path, class:"btn btn-success" %>
+    </div>
+  </div>
+</main>

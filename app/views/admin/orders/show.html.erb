@@ -1,0 +1,52 @@
+<h2>注文履歴詳細</h2>
+<tbody>
+  <tr>
+    <th>購入者</th>
+    <td>
+    <%= @order.customer.sunname %>
+    <%= @order.customer.name %>
+    </td>
+  </tr>
+  <tr>
+    <th>配送先</th>
+    <td><%= @order.address %></td>
+  </tr>
+  <tr>
+    <th>支払方法</th>
+    <td><%= @order.payment_method %></td>
+  </tr>
+</tbody>
+
+<thead>
+  <tr>
+    <th>商品名</th>
+    <th>単価（税込）</th>
+    <th>数量</th>
+    <th>小計</th>
+  </tr>
+</thead>
+<tbody>
+  <% @order_details.each do |order_detail| %>
+    <tr>
+      <td><%= order_detail.item.name %></td>
+      <td><%= (order_detail.price).floor.to_s(:delimited, delimiter: ',') %></td>
+      <td><%= order_detail.amount %></td>
+      <td><%= (order_detail.price * order_detail.amount).floor.to_s(:delimited, delimiter: ',') %></td>
+      </td>
+    </tr>
+  <% end %>
+</tbody>
+<tbody>
+  <tr>
+    <td>商品合計</td>
+    <td><%= (@order.total_payment).to_s(:delimited, delimiter: ',') %></td>
+  </tr>
+  <tr>
+    <td>送料</td>
+    <td><%= @order.shipping_cost.to_s(:delimited, delimiter: ',') %></td>
+  </tr>
+  <tr>
+    <td>請求合計金額</td>
+    <td><%= @order.total_payment + @order.shipping_cost %></td>
+  </tr>
+</tbody>

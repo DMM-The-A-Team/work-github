@@ -1,0 +1,19 @@
+<main>
+<div class="mx-auto" style="width: 200px;">
+  <div class="row">
+    <div class="class="col-md-3"">
+        <h2>商品編集</h2>
+        <tr>
+        <%= form_with model: @item, url: update_admins_items_path(@item.id), method: :patch do |f| %>
+          <td><p>商品画像</p><%= f.file_field :image_id %></td>
+          <td><p>商品名</p><%= f.text_field :name %></td>
+          <td><p>商品説明</p><%= f.text_area :introduction %></td>
+          <td><p>税抜価格</p><%= f.text_field :price %></td>
+          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+        <% end %>
+        </tr>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
