@@ -3,9 +3,9 @@
   <tr>
     <th>購入者</th>
     <td>
-    <%= link_to admins_customer_path(@order.customer) do %>
-    <%= @order.customer.last_name %>
-    <%= @order.customer.first_name %>
+    <%= link_to admin_order_path do %>
+    <%= @order.customer.sunname %>
+    <%= @order.customer.name %>
     <% end %>
     </td>
   </tr>
@@ -18,12 +18,12 @@
     <td><%= @order.payment_method %></td>
   </tr>
   <tr>
-    <th>注文ステータス</th>
+    <%#<th>注文ステータス</th>
     <td>
-    <%= form_for (@order), url:admins_order_path(@order) do |f| %>
-    <%= f.select :order_status,Order.order_statuses.keys.to_a %>
-    <%= f.submit "更新", class: "btn btn-success" %>
-    <% end %>
+    <%#= form_for (@order), url:admin_order_path do |f| %>
+    <%#= f.select :order_status,Order.order_statuses.keys.to_a %>
+    <%#= f.submit "更新", class: "btn btn-success" %>
+    <%# end %>
     </td>
   </tr>
 </tbody>
@@ -42,13 +42,13 @@
     <tr>
       <td><%= order_detail.item.name %></td>
       <td><%= (order_detail.price).floor.to_s(:delimited, delimiter: ',') %></td>
-      <td><%= order_detail.quantity %></td>
-      <td><%= (order_detail.price * order_detail.quantity).floor.to_s(:delimited, delimiter: ',') %></td>
-      <td>
+      <td><%= order_detail.amount %></td>
+      <td><%= (order_detail.price * order_detail.amount).floor.to_s(:delimited, delimiter: ',') %></td>
+      <%#<td>
         <%= form_for (order_detail), url:admins_order_detail_path(order_detail) do |f|  %>
-        <%= f.select :making_status, OrderDetail.making_statuses.keys.to_a %>
-        <%= f.submit '更新',class:"btn btn-success" %>
-        <% end %>
+        <%#= f.select :making_status, OrderDetail.making_statuses.keys.to_a %>
+        <%#= f.submit '更新',class:"btn btn-success" %>
+        <%# end %>
       </td>
     </tr>
   <% end %>
@@ -56,11 +56,11 @@
 <tbody>
   <tr>
     <td>商品合計</td>
-    <td><%= (@order.total_payment - @order.postage).to_s(:delimited, delimiter: ',') %></td>
+    <td><%= (@order.total_payment - @order.postal_code).to_s(:delimited, delimiter: ',') %></td>
   </tr>
   <tr>
     <td>送料</td>
-    <td><%= @order.postage.to_s(:delimited, delimiter: ',') %></td>
+    <td><%= @order.postal_code.to_s(:delimited, delimiter: ',') %></td>
   </tr>
   <tr>
     <td>請求合計金額</td>
