@@ -59,7 +59,6 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    #@ordered_items = @order.ordered_items
     @order_details = @order.order_details
   end
 

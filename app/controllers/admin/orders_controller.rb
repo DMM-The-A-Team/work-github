@@ -6,7 +6,7 @@ class Admin::OrdersController < ApplicationController
 	end
 	
 	def index
-    @orders = Order.where.not(status: nil).order(created_at: "DESC")
+    @orders = Order.all
   end
 
 	def update
