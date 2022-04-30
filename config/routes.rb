@@ -20,8 +20,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get "about"=>"public/homes#about"
-  post "orders"=>"public/orders#create"
   get "orders"=>"public/orders#index"
+  post "orders"=>"public/orders#create"
   get "orders/new"=>"public/orders#new"
 
   get "orders/confirm"=>"public/orders#confirm"
@@ -34,7 +34,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   get "admin/orders/index"=>"admin/orders#index"
   get "admin/orders/:id"=>"admin/orders#show"
   patch "orders/:id"=>"admin/orders#update"
-  get "orders/:id"=>"public/orders#show"
   get "items/id"=>"public/items#show"
 
 

@@ -3,18 +3,17 @@
   <div class="col-xs-9">
     <h2>商品一覧</h2>
     <div class="row">
-      <div class= "col-md-8 offset-md-1">
-        <% @items.each do |item| %>
-          <div class="box" style="float:left; margin-right:20px;">
-            <% if item.image.attached? %>
-              <%= image_tag item.image, size: "200x100" %><br>
-            <% else %>
-              <%= image_tag 'no_image', size: "200x100" %><br>
-            <% end %>
-              <%=link_to item.name, item_path(item.id) %><br>
-              ￥<%= item.price %><br>
-          </div>
-        <% end %>
+      <% @items.each do |item| %>
+        <div class="box" style="float:left; margin-right:20px;">
+          <% if item.image.attached? %>
+            <%= image_tag item.image, size: "200x100" %><br>
+          <% else %>
+            <%= image_tag 'no_image', size: "200x100" %><br>
+          <% end %>
+            <%=link_to item.name, item_path(item.id) %><br>
+            ￥<%= item.price %><br>
+        </div>
+      <% end %>
     </div>
     </div>
   </div>
