@@ -14,7 +14,7 @@
 <tbody>
  <% @cart_items.each do |cart_item| %>
   <tr>
-   <%= image_tag cart_item.item.get_image, size: '100x40' %></th>
+   <%#= image_tag cart_item.item.get_image, size: '100x40' %>
    <td><%= cart_item.item.name %></td>
    <td><%= cart_item.item.get_tax_include_price.to_s + "円" %></td>
    <td><%= cart_item.amount.to_s + "個" %></td>
