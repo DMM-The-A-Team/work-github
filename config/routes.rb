@@ -21,20 +21,20 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   get "about"=>"public/homes#about"
   get "orders"=>"public/orders#index"
+  post "orders"=>"public/orders#create"
   get "orders/new"=>"public/orders#new"
+  get "orders/:id"=>"public/orders#show"
 
   get "orders/confirm"=>"public/orders#confirm"
-  post "orders"=>"public/orders#confirm"
+  post "orders/confirm"=>"public/orders#confirm"
   get "admin"=>"admin/homes#top"
 
-  post "orders/confirm"=>"public/orders#confirm"
-  post "orders/create"=>"public/orders#create"
+
   get "admin"=>"admin/homes#top"
   get "orders/complete"=>"public/orders#complete"
+  get "admin/orders/:id"=>"admin/orders#show",as: 'admin_order'
   get "admin/orders/index"=>"admin/orders#index"
-  get "admin/orders/:id"=>"admin/orders#show"
   patch "orders/:id"=>"admin/orders#update"
-  get "orders/:id"=>"public/orders#show"
   get "items/id"=>"public/items#show"
 
 

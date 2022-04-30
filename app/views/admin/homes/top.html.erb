@@ -11,16 +11,23 @@
       <th scope="col" class="col-2">購入日時</th>
       <th scope="col" class="col-2">購入者</th>
       <th scope="col" class="col-2">注文個数</th>
-      <th scope="col" class="col-2">注文ステータス</th>
+      <%#<th scope="col" class="col-2">注文ステータス</th>%>
       </tr>
     </thead>
     <tbody>
-      <% @orders.each do |order| %>
+    <% @orders.each do |order| %>
       <tr>
     <td><%= order.created_at %></td>
     <td><%= order.customer.name %></td>
+
     <td><%= order_details.amount %></td>
     <td><%= order_detalis.making_status %></td>
+
+    <% end %>
+    <% @order_details.each do |order_detail| %>
+      <td><%= order_detail.amount %></td>
+    <td><%#= order_detalis.making_status %></td>
+
     </tr>
   <% end %>
       </tbody>
